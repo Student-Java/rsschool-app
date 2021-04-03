@@ -3,7 +3,7 @@ import { HeartTwoTone } from '@ant-design/icons';
 import axios from 'axios';
 import { NextPageContext } from 'next';
 import { LocationSelect, PageLayout } from 'components';
-import { CommentInput, GdprCheckbox } from 'components/Forms';
+import { GdprCheckbox } from 'components/Forms';
 import withSession from 'components/withSession';
 import { useCallback, useState, useEffect } from 'react';
 import { useAsync, useUpdate } from 'react-use';
@@ -54,7 +54,6 @@ function Page(props: Props & { courseAlias?: string }) {
   const handleSubmit = useCallback(async (model: any) => {
     setLoading(true);
     const {
-      comment,
       technicalMentoring,
       preferedCourses,
       preferedStudentsLocation,
@@ -64,7 +63,6 @@ function Page(props: Props & { courseAlias?: string }) {
     } = model;
 
     const registryModel = {
-      comment,
       preferedCourses,
       maxStudentsLimit,
       englishMentoring,
@@ -335,13 +333,6 @@ function Page(props: Props & { courseAlias?: string }) {
                 </Form.Item>
               </Col>
             </Row>
-
-            <Row gutter={defaultRowGutter}>
-              <Col {...textColumnSizes}>
-                <CommentInput notRequired />
-              </Col>
-            </Row>
-
             <Row>
               <Typography.Paragraph>
                 <Alert
