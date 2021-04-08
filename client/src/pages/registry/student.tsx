@@ -105,6 +105,7 @@ function Page(props: Props & { courseAlias?: string }) {
     content = (
       <Form
         layout="vertical"
+        style={{ margin: 16 }}
         form={form}
         initialValues={getInitialValues(initialData, courses)}
         onChange={update}
@@ -177,7 +178,9 @@ function Page(props: Props & { courseAlias?: string }) {
             </Col>
           </Row>
           <Row>
-            <GdprCheckbox />
+            <Col {...textColumnSizes}>
+              <GdprCheckbox />
+            </Col>
           </Row>
           <Button size="large" type="primary" disabled={!form.getFieldValue('gdpr')} htmlType="submit">
             Submit
